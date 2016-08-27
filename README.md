@@ -87,3 +87,61 @@ When starting a new custom theme, a developer will
 }
 
 ```
+
+#### Theme slug, `text-domain`, prefixes
+
+These can be generated using the package `name`
+
+```json
+"name": "my-project-name"
+```
+
+#### Theme Headers
+This part of the `package.json` can be used to generate the theme headers.
+
+```json
+{
+  "name": "my-project-name",
+  "version": "0.0.1",
+  "author": {
+    "name": "Yapapaya",
+    "url": "https://yapapaya.com"
+  },
+  "homepage": "https://yapapaya.com/my-project-name/",
+  "description": "A custom description for My Project Name",
+}
+```
+
+#### `wpBootStrap` Data
+
+This part contains information that the `wpBootStrap` framework needs. 
+
+```json
+{
+  "wpBootStrap": {
+    "name": "My Project Name",
+    "starter": {
+      "repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
+      "replace": "_s"
+    },
+    "components": [
+      "flex-grid", "font-awesome", "testimonial", "section-with-aside"
+    ],
+    "componentArchive": {
+      "repository": "git@git.yapapaya.in:yapapaya/theme-components.git",
+      "replace": "component"
+    }
+  }
+}
+
+```
+
+This is an example of an internal version we are working on.
+ 1. **name**: (*optional*) can be used for `Theme Name:` header.
+ 2. **starter**: (*required*) contains information about the starter theme/framework
+  * **repository**: (*required*) is the `git` url of the repository of the starter (only BitBucket and GitLab supported, as of now)
+  * **replace**: (*optional*) is the namespace of the starter. This will be replaced with variations of the package name See the idea behind it, using [*_s* theme](https://github.com/Automattic/_s#getting-started).
+ 3. **components**: (*optional*) is an array of components that are needed for this theme.
+ 4. **componentArchive** (required if `components` field is present.
+  * **repository** (*required*) the repository where the archive containing all the components is.
+  * **replace** (*optional*) a common namespace used by all the components for function prefixes, etc, just like the `replace` field of `starter`.

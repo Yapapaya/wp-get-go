@@ -1,0 +1,29 @@
+{
+	"name": "my-project-name",
+	"version": "0.0.1",
+	"author": {
+		"name": "Yapapaya",
+		"url": "https://yapapaya.com"
+	},
+	"license": "GPL-2.0",
+	"homepage": "https://yapapaya.com/my-project-name/",
+	"description": "A custom description for My Project Name",
+	"repository": "git@git.yapapaya.in:yapapaya/my-project-name",
+	"wpBootStrap": {
+		"prettyName": "My Project Name",
+		"starter": {
+			"repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
+			"keyword": "_s",
+			"map": "style-map.json"
+		},
+		"components": [
+			"testimonials",
+			"wiki"
+		],
+		"componentArchive": {
+			"repository": "git@git.yapapaya.in:yapapaya/theme-components.git",
+			"keyword": "_s",
+			"index": "component.json"
+		}
+	}
+}

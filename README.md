@@ -21,8 +21,10 @@ This framework is an attempt to automate and modularise development of custom th
 
 ## Skill Requirements
  1. `git`
- 2. `grunt`
+ 2. ~~`grunt`~~* 
  3. `sass`
+
+* No longer involves grunt since bootstrapping is a one time task. It makes more sense to take it out of the repetitive workflow and task management. This also separates it from the `grunt` vs `gulp` or any other workflow, now or in the future. 
 
 ## Resource Requirements
 GitLab or BitBucket `git` server for repositories involved (because they support `git archive` command, GitHub workaround is for later; we wish to avoid `git clone` or downloading a `.zip` of the whole repo because it's too much unnecessary data).
@@ -30,19 +32,20 @@ GitLab or BitBucket `git` server for repositories involved (because they support
 ## Concept
 
 ### Framework Components
- 1. A grunt plugin
+ 1. A ~~grunt~~ *node* plugin
  2. A starter theme/plugin repository.
  3. A component (reusable code modules) repository
 
 ### Envisioned Dev Workflow
 When starting a new custom theme, a developer will
 
+ 1. install **wpBootStrap**'s node plugin
  1. create a new folder for the theme.
- 2. create (or clone or copy and modify) a `package.json` in this folder (see example below) that describes the starter theme and the components needed for this theme.
- 2. install **wpBootStrap**'s grunt plugin
- 3. create (or clone or copy and modify) a `Gruntfile.js` and with a `bootstrap` task for the grunt plugin in 2.
- 4. run `grunt bootstrap`
- 5. start writing code.
+ 1. create (or clone or copy and modify) a `package.json` in this folder (see example below) that describes the starter theme and the components needed for this theme.
+ 1. install **wpBootStrap**'s node plugin
+ 1. create (or clone or copy and modify) a `Gruntfile.js` and with a `bootstrap` task for the grunt plugin in 2.
+ 1. run `wpbootstrap` command
+ 1. start writing code.
 
 ### Example `package.json`
 ```json
@@ -74,14 +77,12 @@ When starting a new custom theme, a developer will
     "name": "My Project Name",
     "starter": {
       "repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
-      "keyword": "_s"
+      "replace": "_s"
     },
-    "components": [
-      "flex-grid", "font-awesome", "testimonial", "section-with-aside"
-    ],
-    "componentArchive": {
+    "components": {
+	"names":[ "flex-grid", "font-awesome", "testimonial", "section-with-aside" ],
       "repository": "git@git.yapapaya.in:yapapaya/theme-components.git",
-      "keyword": "component"
+      "replace": "component"
     }
   }
 }

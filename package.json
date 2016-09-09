@@ -1,0 +1,31 @@
+{
+  "name": "wp-bootstrap",
+  "version": "0.0.1",
+  "description": "Quickly bootstrap WordPress theme/plugin development using your own modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yapapaya/wpBootStrap.git"
+  },
+  "keywords": [
+    "WordPress",
+    "Theme",
+    "Development",
+    "Plugin",
+    "Development"
+  ],
+  "author": "Saurabh Shukla",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/yapapaya/wpBootStrap/issues"
+  },
+  "homepage": "https://github.com/yapapaya/wpBootStrap#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "replace": "^0.3.0",
+    "winston": "^2.2.0"
+  }
+}

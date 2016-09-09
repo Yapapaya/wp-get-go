@@ -1,0 +1,6 @@
+{
+	"name": "my-project-name",
+	"wpBootStrap": {
+		"functionPrefix": "my project name"
+	}
+}

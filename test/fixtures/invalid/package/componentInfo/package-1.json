@@ -1,0 +1,8 @@
+{
+	"name": "my-project-name",
+	"wpBootStrap": {
+		"components": {
+			"names": "testimonials"
+		}
+	}
+}

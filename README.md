@@ -50,43 +50,29 @@ When starting a new custom theme, a developer will
 ### Example `package.json`
 ```json
 {
-  "name": "my-project-name",
-  "version": "0.0.1",
-  "author": {
-    "name": "Yapapaya",
-    "url": "https://yapapaya.com"
-  },
-  "homepage": "https://yapapaya.com/my-project-name/",
-  "description": "A custom description for My Project Name",
-  "repository": "git@git.yapapaya.in:yapapaya/my-project-name",
-  "bugs": "git@git.yapapaya.in:yapapaya/my-project-name/issues/",
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-cli": "~0.1.9",
-    "load-grunt-tasks": "~0.4.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-sass": "~0.7.3",
-    "grunt-autoprefixer": "~0.7.2",
-    "grunt-csscomb": "~2.0.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.4.0",
-    "grunt-wp-i18n": "~0.4.3",
-    "wp-bootstrap": "git+ssh://git@git.yapapaya.in:yapapaya/wp-bootstrap.git"
-  },
-  "wpBootStrap": {
-    "name": "My Project Name",
-    "starter": {
-      "repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
-      "replace": "_s"
-    },
-    "components": {
-	"names":[ "flex-grid", "font-awesome", "testimonial", "section-with-aside" ],
-      "repository": "git@git.yapapaya.in:yapapaya/theme-components.git",
-      "replace": "component"
-    }
-  }
+	"name": "my-project-name",
+	"version": "0.0.1",
+	"author": {
+		"name": "Yapapaya",
+		"url": "https://yapapaya.com"
+	},
+	"homepage": "https://yapapaya.com/my-project-name/",
+	"description": "A custom description for My Project Name",
+	"repository": "git@git.yapapaya.in:yapapaya/my-project-name.git",
+	"bugs": "https://git.yapapaya.in:yapapaya/my-project-name/issues/",
+	"wpBootStrap": {
+		"name": "My Project Name",
+		"starter": {
+			"repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
+			"replace": "_s"
+		},
+		"components": {
+			"names": [ "flex-grid", "font-awesome", "testimonial", "section-with-aside" ],
+			"repository": "git@git.yapapaya.in:yapapaya/theme-components.git",
+			"replace": "component"
+		}
+	}
 }
-
 ```
 
 #### Theme slug, `text-domain`, prefixes
@@ -102,14 +88,15 @@ This part of the `package.json` can be used to generate the theme headers.
 
 ```json
 {
-  "name": "my-project-name",
-  "version": "0.0.1",
-  "author": {
-    "name": "Yapapaya",
-    "url": "https://yapapaya.com"
-  },
-  "homepage": "https://yapapaya.com/my-project-name/",
-  "description": "A custom description for My Project Name",
+	"name": "my-project-name",
+	"version": "0.0.1",
+	"author": {
+		"name": "Yapapaya",
+		"url": "https://yapapaya.com"
+	},
+	"homepage": "https://yapapaya.com/my-project-name/",
+	"description": "A custom description for My Project Name",
+	"repository": "git@git.yapapaya.in:yapapaya/my-project-name.git"
 }
 ```
 
@@ -119,20 +106,18 @@ This part contains information that the `wpBootStrap` framework needs.
 
 ```json
 {
-  "wpBootStrap": {
-    "name": "My Project Name",
-    "starter": {
-      "repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
-      "replace": "_s"
-    },
-    "components": [
-      "flex-grid", "font-awesome", "testimonial", "section-with-aside"
-    ],
-    "componentArchive": {
-      "repository": "git@git.yapapaya.in:yapapaya/theme-components.git",
-      "replace": "component"
-    }
-  }
+	"wpBootStrap": {
+		"name": "My Project Name",
+		"starter": {
+			"repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
+			"replace": "_s"
+		},
+		"components": {
+			"names": [ "flex-grid", "font-awesome", "testimonial", "section-with-aside" ],
+			"repository": "git@git.yapapaya.in:yapapaya/theme-components.git",
+			"replace": "component"
+		}
+	}
 }
 
 ```

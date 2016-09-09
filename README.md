@@ -1,10 +1,10 @@
-# wpBootStrap
-A framework for bootstrapping WordPress theme/plugin development.
+# wp-get-go
+`wp-get-go` (*get-go* = get going) is a framework for bootstrapping WordPress theme/plugin development.
 
-**Note**: Right now focusing only on getting theme bootstrapping to work, plugins are the next step.
+**Note**: Right now only focused on client-facing WordPress theme projects and component (module) architecture (because theme components are easier to conceptualise). Plugins are the aim of version `2.0.0`.
 
 ## Concept
-While developing a custom theme, a developer usually
+While developing a new custom theme, a developer usually
  1. Downloads a starter theme.
  2. Performs a find/replace for `theme-slug` and manually edits the theme header information in `style.scss` or `style.css`.
  2. Creates or copies additional files: `.js`, `.scss`, `.php` *template files*, (for eg. `event-single.php`) to achieve the desired look and feel

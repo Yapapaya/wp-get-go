@@ -1,82 +1,42 @@
-/**
- * Starter Package Fetch Module
- * 
- * @module lib/fetch-starter
- */
+#!/usr/bin/env node
 
 'use strict';
 
-var fs = require('fs');
-var exec = require( 'child_process' ); // for running git commands
-var chalk = require( 'chalk' ); // for colouring output
+/*
+ * 
+ * Why not call this wp-crank or wp-get-go(ing) because it cranks out WordPress projects
+ */
+
+var program = require('commander');
+
 var log = require("winston"); // for logging
 
+/*
+ * cmd `wpbootstrap --no-validate --no-css --no-push`
+*/
 
-var wpBootStrap = function() {
-	//this.initConfig();
-};
-
-wpBootStrap.bootStrapInfo = { };
-
-wpBootStrap.init = function( bootStrapInfo ) {
-	this.bootStrapInfo = bootStrapInfo;
-};
-
-// get package info from Package Info Parser Module
-wpBootStrap.packageParser = require( './lib/package-info-parser' );
-
-// initialise module to fetch starter package
-// wpBootStrap.starter = require( './lib/fetch-starter' );
-
-wpBootStrap.utils = require( './lib/utils' );
-// initialise module to fetch starter package
-// wpBootStrap.components = require( './lib/fetch-component' );
-
-// wpBootStrap.replacer = require( './lib/replace-theme' );
-
-// wpBootStrap.mapBuilder = require( './lib/build-style-map' );
-
-wpBootStrap.packageInfo = { };
-
-wpBootStrap.bootStrapInfo = {'buildDir':'build', 'installed': ['flex-grid', 'font-awesome'] };
-		
-wpBootStrap.installed = [];
+program
+	.version( '0.0.1' )
+.command('wp-gg')
+.alias('wpgetgo')
+  .alias('wpgg')
+  .alias('wp-get-go')
+  .alias('wp-get-go')
+  .description('BootStrap a WordPress plugin theme or plugin')
+	// .option( '--log [level]', 'The level of logging desired' )
+	.option( '--no-validate', 'Don\'t validate git repositories' )
+	.option( '--no-css', 'Don\'t generate style.css from style.scss' )
+	.option( '--no-push', 'Don\'t commit and push after bootstrapping' )
+	.option('-v, --verbose', 'Detailed log output')
+	.parse( process.argv );
 
 
-wpBootStrap.initConfig = function() {
+console.log('Starting bootstrap process...');
 
-			if ( !fs.existsSync( './package.json' ) ) {
-				log.error("wpBootStrap couldn't find a " + chalk.yellow( 'package.json' ) + " file!" );
-			}
+var wpbs = require("./lib/wpbs.js");
 
-			this.packageInfo = this.utils.readJSON( './package.json' );
-			
-			console.log('debug',this.packageInfo);
+wpbs.init(program.validate, program.css, program.push, program.verbose);
 
-			log.verbose('Parsing package information...' );
+console.log('Parsing Package Information...');
 
-			try {
-				// get package info from Package Info Parser Module
-				this.packageInfo = this.packageParser.parse( this.packageInfo );
-			} catch ( e ) {
-				log.error( e.message );
-			}
-
-			// move wpBootStrap Information into a separate object for convenience
-			this.bootStrapInfo = this.packageInfo.wpBootStrap;
-
-			log.verbose('ok');
-		};
-
-
-
-
-
-
-/**
- * Initialises module
- * 
- * @param {object} grunt The grunt object
- * @returns {exports.init.exports} Instance of the functional module
- */
-module.exports = wpBootStrap.initConfig();
+wpbs.initConfig();

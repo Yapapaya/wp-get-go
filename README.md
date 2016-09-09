@@ -61,7 +61,7 @@ When starting a new custom theme, a developer will
 	"repository": "git@git.yapapaya.in:yapapaya/my-project-name.git",
 	"bugs": "https://git.yapapaya.in:yapapaya/my-project-name/issues/",
 	"wpBootStrap": {
-		"name": "My Project Name",
+		"prettyName": "My Project Name",
 		"starter": {
 			"repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
 			"replace": "_s"
@@ -92,7 +92,7 @@ This part of the `package.json` can be used to generate the theme headers.
 	"version": "0.0.1",
 	"author": {
 		"name": "Yapapaya",
-		"url": "https://yapapaya.com"
+		"url": "https://yapapaya.com/"
 	},
 	"homepage": "https://yapapaya.com/my-project-name/",
 	"description": "A custom description for My Project Name",
@@ -100,6 +100,22 @@ This part of the `package.json` can be used to generate the theme headers.
 }
 ```
 
+The `json` above will create the theme headers in `style.css` as follows:
+
+```php
+<?php
+/*
+Theme Name: My Project Name
+Theme URI: https://yapapaya.com/my-project-name/
+Author: Yapapaya
+Author URI: https://yapapaya.com/
+Description: A custom description for My Project Name
+Version: 0.0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: my-project-name
+*/
+```
 #### `wpBootStrap` Data
 
 This part contains information that the `wpBootStrap` framework needs. 

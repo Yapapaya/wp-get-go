@@ -143,7 +143,7 @@ This is an example of an internal version we are working on.
  2. **starter**: (*required*) contains information about the starter theme/framework
   * **repository**: (*required*) is the `git` url of the repository of the starter (only BitBucket and GitLab supported, as of now)
   * **replace**: (*optional*) is the namespace of the starter. This will be replaced with variations of the package name See the idea behind it, using [*_s* theme](https://github.com/Automattic/_s#getting-started).
- 3. **components**: (*optional*) is an array of components that are needed for this theme.
- 4. **componentArchive** (required if `components` field is present.
+ 3. **components**: (*optional*) contains information about the components
+  * **names** (*optional*) is an array of components that are needed for this theme.
   * **repository** (*required*) the repository where the archive containing all the components is.
   * **replace** (*optional*) a common namespace used by all the components for function prefixes, etc, just like the `replace` field of `starter`.

@@ -21,10 +21,7 @@ This framework is an attempt to automate and modularise development of custom th
 
 ## Skill Requirements
  1. `git`
- 2. ~~`grunt`~~* 
- 3. `sass`
-
-* No longer involves grunt since bootstrapping is a one time task. It makes more sense to take it out of the repetitive workflow and task management. This also separates it from the `grunt` vs `gulp` or any other workflow, now or in the future. 
+ 1. `sass`
 
 ## Resource Requirements
 GitLab or BitBucket `git` server for repositories involved (because they support `git archive` command, GitHub workaround is for later; we wish to avoid `git clone` or downloading a `.zip` of the whole repo because it's too much unnecessary data).
@@ -39,10 +36,10 @@ GitLab or BitBucket `git` server for repositories involved (because they support
 ### Envisioned Dev Workflow
 When starting a new custom theme, a developer will
 
- 1. install **wpBootStrap**'s node plugin
+ 1. install **wpgg**'s node plugin
  1. create a new folder for the theme.
  1. create (or clone or copy and modify) a `package.json` in this folder (see example below) that describes the starter theme and the components needed for this theme.
- 1. install **wpBootStrap**'s node plugin
+ 1. install **wpgg**'s node plugin
  1. create (or clone or copy and modify) a `Gruntfile.js` and with a `bootstrap` task for the grunt plugin in 2.
  1. run `wpbootstrap` command
  1. start writing code.
@@ -60,8 +57,9 @@ When starting a new custom theme, a developer will
 	"description": "A custom description for My Project Name",
 	"repository": "git@git.yapapaya.in:yapapaya/my-project-name.git",
 	"bugs": "https://git.yapapaya.in:yapapaya/my-project-name/issues/",
-	"wpBootStrap": {
+	"wpgg": {
 		"prettyName": "My Project Name",
+		"functionPrefix" : "my_project_name",
 		"starter": {
 			"repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
 			"replace": "_s"
@@ -116,13 +114,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: my-project-name
 */
 ```
-#### `wpBootStrap` Data
+#### `wpgg` Data
 
-This part contains information that the `wpBootStrap` framework needs. 
+This part contains information that the `wpgg` framework needs. 
 
 ```json
 {
-	"wpBootStrap": {
+	"wpgg": {
 		"name": "My Project Name",
 		"starter": {
 			"repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
@@ -135,7 +133,6 @@ This part contains information that the `wpBootStrap` framework needs.
 		}
 	}
 }
-
 ```
 
 This is an example of an internal version we are working on.

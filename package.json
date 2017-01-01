@@ -24,6 +24,7 @@
   "homepage": "https://github.com/yapapaya/wpBootStrap#readme",
   "dependencies": {
     "chalk": "^1.1.3",
+    "colors": "^1.1.2",
     "commander": "^2.9.0",
     "replace": "^0.3.0",
     "winston": "^2.2.0"

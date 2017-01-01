@@ -31,3 +31,5 @@ logLevel = ('silly' in program )? 'silly': logLevel;
 var wpgg = require("./lib/wpgg.js").init(program.validate, program.autofix, program.css, program.push, logLevel);
 
 wpgg.initConfig();
+
+wpgg.fetch();

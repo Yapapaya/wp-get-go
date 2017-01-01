@@ -24,13 +24,9 @@ var logLevel = 'info';
 
 var logLevel = ('verbose' in program )? 'verbose': logLevel;
 
-if(logLevel === ''){
-	logLevel = ('debug' in program )? 'debug': logLevel;
-}
+logLevel = ('debug' in program )? 'debug': logLevel;
 
-if(logLevel === ''){
-	logLevel = ('silly' in program )? 'silly': logLevel;
-}
+logLevel = ('silly' in program )? 'silly': logLevel;
 
 var wpgg = require("./lib/wpgg.js").init(program.validate, program.autofix, program.css, program.push, logLevel);
 

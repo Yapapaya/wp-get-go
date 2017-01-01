@@ -1,7 +1,17 @@
 # wp-get-go
-`wp-get-go` (*get-go* = get going) is a framework for bootstrapping WordPress theme/plugin development.
 
-**Note**: Right now only focused on client-facing WordPress theme projects and component (module) architecture (because theme components are easier to conceptualise). Plugins are the aim of version `2.0.0`.
+`wp-get-go` (*get-go* = get going) is a framework for bootstrapping WordPress theme development.
+
+## Command
+`wpgg [--no-validate --no-autofix --no-push --no-css [--silly | --verbose | --debug]]`
+
+**Arguments**
+ 1. `--no-validate` Don't validate the git repositories (if you know they are fine, this can speed up build.
+ 1. `--no-autofix` `wpgg` can fix and update a lot of errors in the package and build information. Using this argument will prevent that and throw errors instead.
+ 1. `--no-push` Once the build is completed, the code will be commited and pushed to remote. To do that manually, use this argument.
+ 1. `--no-css` Once the build is completed, a `style.css` will be generated from the built `style.scss`. Use this argument to prevent that. 
+ 1. `--silly` | `--verbose` | `--debug` The detail of logs. `--silly` is meant for developers of the framework and is silly for you to use. `--verbose` will give you very detailed log. `--debug` is useful if you wish to see a little more detail than what's logged normally and can help in identifying issues and reporting errors.
+
 
 ## Concept
 While developing a new custom theme, a developer usually
@@ -28,8 +38,8 @@ GitLab or BitBucket `git` server for repositories involved (because they support
 
 ## Concept
 
-### Framework Components
- 1. A ~~grunt~~ *node* plugin
+### Framework Parts
+ 1. A *node* plugin
  2. A starter theme/plugin repository.
  3. A component (reusable code modules) repository
 
@@ -39,9 +49,8 @@ When starting a new custom theme, a developer will
  1. install **wpgg**'s node plugin
  1. create a new folder for the theme.
  1. create (or clone or copy and modify) a `package.json` in this folder (see example below) that describes the starter theme and the components needed for this theme.
- 1. install **wpgg**'s node plugin
- 1. create (or clone or copy and modify) a `Gruntfile.js` and with a `bootstrap` task for the grunt plugin in 2.
- 1. run `wpbootstrap` command
+ 1. install **wpgg**'s node plugin.
+ 1. run `wpgg` command.
  1. start writing code.
 
 ### Example `package.json`

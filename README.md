@@ -56,7 +56,7 @@ When starting a new custom theme, a developer will
 ### Example `package.json`
 ```json
 {
-	"name": "my-project-name",
+	"name": "my-theme",
 	"version": "0.0.1",
 	"author": {
 		"name": "Yapapaya",
@@ -67,8 +67,8 @@ When starting a new custom theme, a developer will
 	"repository": "git@git.yapapaya.in:yapapaya/my-project-name.git",
 	"bugs": "https://git.yapapaya.in:yapapaya/my-project-name/issues/",
 	"wpgg": {
-		"prettyName": "My Project Name",
-		"functionPrefix" : "my_project_name",
+		"prettyName": "Baap Theme",
+		"functionPrefix" : "my_theme",
 		"starter": {
 			"repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
 			"replace": "_s",
@@ -136,10 +136,17 @@ This part contains information that the `wpgg` framework needs.
 ```json
 {
 	"wpgg": {
-		"name": "My Project Name",
+		"prettyName": "Baap Theme",
+		"functionPrefix" : "my_theme",
 		"starter": {
 			"repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
-			"replace": "_s"
+			"replace": "_s",
+			"gitHeader": "Repo",
+			"gitHeaderType": "git",
+			"colophon" : {
+				"author" : "Automattic",
+				"url" : "automattic.com"
+			}
 		},
 		"components": {
 			"names": [ "flex-grid", "font-awesome", "testimonial", "section-with-aside" ],
@@ -151,10 +158,13 @@ This part contains information that the `wpgg` framework needs.
 ```
 
 This is an example of an internal version we are working on.
- 1. **name**: (*optional*) can be used for `Theme Name:` header.
- 2. **starter**: (*required*) contains information about the starter theme/framework
-  * **repository**: (*required*) is the `git` url of the repository of the starter (only BitBucket and GitLab supported, as of now)
-  * **replace**: (*optional*) is the namespace of the starter. This will be replaced with variations of the package name See the idea behind it, using [*_s* theme](https://github.com/Automattic/_s#getting-started).
+ 1. **prettyName**: (*optional*) `Theme Name:` header. If not supplied, will be generated from package `name` by replacing hyphens(`-`) with spaces and capitalising each word. (`my-theme` will make `My Theme`)
+ 1. **functionPrefix**: (*optional*) Prefix for function names. If not supplied, will be generated from package `name` by replacing hyphens(`-`) with underscores (`_`). (`my-theme` will make `my_theme`)
+ 1. **starter**: (*required*) Information about the starter theme. We use a custom flavour of [`_s` theme by Automattic](https://github.com/Automattic/_s).
+  * **repository**: (*required*) is the `git` url of the repository of the starter
+  * **replace**: (*optional*) The namespace of the starter. This will be replaced in function names, text-domain, documentation, etc . See the idea behind it, using [*_s* theme](https://github.com/Automattic/_s#getting-started). If not supplied, no replacements will be made.
+  * **gitHeader**: (**optional**) An optional git header. For example, if you use something like [GitHub Updater](https://github.com/afragen/github-updater) you'd set this to `GitHub Theme URI`.
+  * **gitHeaderType**: (**optional**) Whether to use `git` style URL or `https` urls for the git header. For example, if you use something like [GitHub Updater](https://github.com/afragen/github-updater) you'd set this to `https`.
  3. **components**: (*optional*) contains information about the components
   * **names** (*optional*) is an array of components that are needed for this theme.
   * **repository** (*required*) the repository where the archive containing all the components is.

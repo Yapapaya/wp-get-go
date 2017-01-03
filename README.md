@@ -13,46 +13,6 @@
  1. `--silly` | `--verbose` | `--debug` The detail of logs. `--silly` is meant for developers of the framework and is silly for you to use. `--verbose` will give you very detailed log. `--debug` is useful if you wish to see a little more detail than what's logged normally and can help in identifying issues and reporting errors.
 
 
-## Concept
-While developing a new custom theme, a developer usually
- 1. Downloads a starter theme.
- 2. Performs a find/replace for `theme-slug` and manually edits the theme header information in `style.scss` or `style.css`.
- 2. Creates or copies additional files: `.js`, `.scss`, `.php` *template files*, (for eg. `event-single.php`) to achieve the desired look and feel
- 3. Creates additional code in `functions.php` required to achieve the desired functionality (for eg, enqueueing scripts and styles)
-
-A lot of these additional work can be repetitive and often follow patterns. It often takes hours to finally get all the basic repetitive stuff in place before the developer can start working on code that they are writing for the first time. Such additional code can be separated and arranged as *reusable modules* or **components**.
-
-### Component Examples
- * *High level* `slideshow`, `testimonial`, `staff-profile`, `related-posts`, `gallery`, `portfolio`, `call-to-action`, etc
- * *Low level* `section-with-aside`, `hero`, `hero-with-cta`, `section-with-image`, `section-with-round-image`, `section-with-square-image`, `hero-with-quote`, etc
- * *Libraries/ Frameworks* `font-awesome`, `masonry`, `infinite-scroll`, a post meta framework like [ButterBean](http://themehybrid.com/weblog/butterbean-post-meta-framework-beta), etc
-
-This framework is an attempt to automate and modularise development of custom themes (and plugins) so that the developer can quickly start writing the *actual* custom part of the code instead of spending hours just getting things in place.
-
-## Skill Requirements
- 1. `git`
- 1. `sass`
-
-## Resource Requirements
-GitLab or BitBucket `git` server for repositories involved (because they support `git archive` command, GitHub workaround is for later; we wish to avoid `git clone` or downloading a `.zip` of the whole repo because it's too much unnecessary data).
-
-## Concept
-
-### Framework Parts
- 1. A *node* plugin
- 2. A starter theme/plugin repository.
- 3. A component (reusable code modules) repository
-
-### Envisioned Dev Workflow
-When starting a new custom theme, a developer will
-
- 1. install **wpgg**'s node plugin
- 1. create a new folder for the theme.
- 1. create (or clone or copy and modify) a `package.json` in this folder (see example below) that describes the starter theme and the components needed for this theme.
- 1. install **wpgg**'s node plugin.
- 1. run `wpgg` command.
- 1. start writing code.
-
 ### Example `package.json`
 ```json
 {
@@ -88,7 +48,7 @@ When starting a new custom theme, a developer will
 }
 ```
 
-#### Theme slug, `text-domain`, prefixes
+#### Theme slug, `text-domain`
 
 These can be generated using the package `name`
 
@@ -169,3 +129,37 @@ This is an example of an internal version we are working on.
   * **names** (*optional*) is an array of components that are needed for this theme.
   * **repository** (*required*) the repository where the archive containing all the components is.
   * **replace** (*optional*) a common namespace used by all the components for function prefixes, etc, just like the `replace` field of `starter`.
+
+## Resource Requirements
+A remote `git` server (GitLab, BitBucket, GitHub, etc) for repositories involved (because they support `git archive` command, GitHub workaround is for later; we wish to avoid `git clone` or downloading a `.zip` of the whole repo because it's too much unnecessary data).
+
+## Concept
+While developing a new custom theme, a developer usually
+ 1. Downloads a starter theme.
+ 2. Performs a find/replace for `theme-slug` and manually edits the theme header information in `style.scss` or `style.css`.
+ 2. Creates or copies additional files: `.js`, `.scss`, `.php` *template files*, (for eg. `event-single.php`) to achieve the desired look and feel
+ 3. Creates additional code in `functions.php` required to achieve the desired functionality (for eg, enqueueing scripts and styles)
+
+A lot of these additional work can be repetitive and often follow patterns. It often takes hours to finally get all the basic repetitive stuff in place before the developer can start working on code that they are writing for the first time. Such additional code can be separated and arranged as *reusable modules* or **components**.
+
+### Component Examples
+ * *High level* `slideshow`, `testimonial`, `staff-profile`, `related-posts`, `gallery`, `portfolio`, `call-to-action`, etc
+ * *Low level* `section-with-aside`, `hero`, `hero-with-cta`, `section-with-image`, `section-with-round-image`, `section-with-square-image`, `hero-with-quote`, etc
+ * *Libraries/ Frameworks* `font-awesome`, `masonry`, `infinite-scroll`, a post meta framework like [ButterBean](http://themehybrid.com/weblog/butterbean-post-meta-framework-beta), etc
+
+This framework is an attempt to automate and modularise development of custom themes (and plugins) so that the developer can quickly start writing the *actual* custom part of the code instead of spending hours just getting things in place.
+
+### Framework Parts
+ 1. A *node* plugin
+ 2. A starter theme/plugin repository.
+ 3. A component (reusable code modules) repository
+
+### Envisioned Dev Workflow
+When starting a new custom theme, a developer will
+
+ 1. install **wpgg**'s node plugin
+ 1. create a new folder for the theme.
+ 1. create (or clone or copy and modify) a `package.json` in this folder (see example below) that describes the starter theme and the components needed for this theme.
+ 1. install **wpgg**'s node plugin.
+ 1. run `wpgg` command.
+ 1. start writing code.

@@ -1,3 +1,8 @@
+/**
+ * Logger
+ * 
+ * @module utils/logger
+ */
 var winston = require( "winston" ); // for logging
 
 var logger = { };

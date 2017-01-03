@@ -71,7 +71,13 @@ When starting a new custom theme, a developer will
 		"functionPrefix" : "my_project_name",
 		"starter": {
 			"repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
-			"replace": "_s"
+			"replace": "_s",
+			"gitHeader": "Repo",
+			"gitHeaderType": "git",
+			"colophon" : {
+				"author" : "Automattic",
+				"url" : "automattic.com"
+			}
 		},
 		"components": {
 			"names": [ "flex-grid", "font-awesome", "testimonial", "section-with-aside" ],

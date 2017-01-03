@@ -123,8 +123,11 @@ This is an example of an internal version we are working on.
  1. **starter**: (*required*) Information about the starter theme. We use a custom flavour of [`_s` theme by Automattic](https://github.com/Automattic/_s).
   * **repository**: (*required*) is the `git` url of the repository of the starter
   * **replace**: (*optional*) The namespace of the starter. This will be replaced in function names, text-domain, documentation, etc . See the idea behind it, using [*_s* theme](https://github.com/Automattic/_s#getting-started). If not supplied, no replacements will be made.
-  * **gitHeader**: (**optional**) An optional git header. For example, if you use something like [GitHub Updater](https://github.com/afragen/github-updater) you'd set this to `GitHub Theme URI`.
-  * **gitHeaderType**: (**optional**) Whether to use `git` style URL or `https` urls for the git header. For example, if you use something like [GitHub Updater](https://github.com/afragen/github-updater) you'd set this to `https`.
+  * **gitHeader**: (*optional*) An optional git header. For example, if you use something like [GitHub Updater](https://github.com/afragen/github-updater) you'd set this to `GitHub Theme URI`.
+  * **gitHeaderType**: (*optional*) Whether to use `git` style URL or `https` urls for the git header. For example, if you use something like [GitHub Updater](https://github.com/afragen/github-updater) you'd set this to `https`.
+  * **colophon**: (*optional*) (*=a publisher's emblem or imprint, especially one on the title page or spine of a book.*) This is the footer credit information ( Baap Theme by Yapapaya) or the copyright information ( &copy; 2017 by Yapapaya.). This will be used for replacing the name and url in footer.php. If not supplied, the colophon will be left, as it is.
+    * **author**: The copyright holder or Theme author.
+    * **url**: The copyright holder's or Theme author's url.
  3. **components**: (*optional*) contains information about the components
   * **names** (*optional*) is an array of components that are needed for this theme.
   * **repository** (*required*) the repository where the archive containing all the components is.

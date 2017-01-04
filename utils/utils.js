@@ -15,7 +15,7 @@ var utils = function(){
  * @param {string} gitURL git URL of repo
  * @returns {string} https url
  */
-utils.svnURL = function( gitURL ) {
+utils.httpsURL = function( gitURL ) {
 	return gitURL.replace( /:/gi, "/" ).replace( /^git@/gi, "https://" ).replace( /.git$/gi, "/" );
 };
 

@@ -9,6 +9,8 @@ var readline = require( 'readline' ); // for reading files line by line
 var fs = require( 'fs' ); // for file system operations
 
 var findReplace = module.exports = function( options, callback ) {
+	
+	console.log(options);
 
 	if ( !'silent' in options ) {
 		options.silent = true;
@@ -30,13 +32,13 @@ var findReplace = module.exports = function( options, callback ) {
 
 	patterns.forEach( function( pattern ) {
 
-		find( path, pattern, options, callback );
+		frFind( path, pattern, options, callback );
 
 	} );
 
 };
 
-var find = function( path, pattern, options, callback ) {
+var frFind = function( path, pattern, options, callback ) {
 	var findablePattern = path + pattern;
 	glob( findablePattern, { nodir: true }, function( err, files ) {
 
@@ -50,23 +52,23 @@ var find = function( path, pattern, options, callback ) {
 				console.log( 'Found file "' + file + '" from pattern "' + pattern + '"' );
 			}
 
-			if ( file.search( '/footer.php' ) > -1 ) {
-				options.match = options.match.concat( options.Colophon );
-			}
+//			if ( file.search( '/footer.php' ) > -1 ) {
+//				options.match = options.match.concat( options.Colophon );
+//			}
 
-			replaceFile( file, options.match, callback );
+			frReplace( file, options, callback );
 
 		} );
 
 	} );
 };
 
-var replace = function( file, options, callback ) {
+var frReplace = function( file, options, callback ) {
 
 	var output = '';
 
 	var match = options.match;
-
+	console.log(match);
 	var rl = readline.createInterface( {
 		input: fs.createReadStream( file )
 	} );

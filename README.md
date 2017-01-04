@@ -23,20 +23,31 @@
 		"url": "https://yapapaya.com"
 	},
 	"homepage": "https://yapapaya.com/my-project-name/",
-	"description": "A custom description for My Project Name",
-	"repository": "git@git.yapapaya.in:yapapaya/my-project-name.git",
-	"bugs": "https://git.yapapaya.in:yapapaya/my-project-name/issues/",
+	"description": "A custom description for My Theme",
+	"repository": "git@git.yapapaya.in:yapapaya/my-theme",
+	"bugs": "git@git.yapapaya.in:yapapaya/my-project-name/issues/",
+	"devDependencies": {
+		"grunt": "^0.4.5",
+		"grunt-cli": "~0.1.9",
+		"load-grunt-tasks": "~0.4.0",
+		"grunt-contrib-watch": "~0.6.1",
+		"grunt-contrib-sass": "~0.7.3",
+		"grunt-autoprefixer": "~0.7.2",
+		"grunt-csscomb": "~2.0.1",
+		"grunt-contrib-concat": "~0.3.0",
+		"grunt-contrib-uglify": "~0.4.0",
+		"grunt-wp-i18n": "~0.4.3"
+	},
 	"wpgg": {
-		"prettyName": "Baap Theme",
-		"functionPrefix" : "my_theme",
+		"prettyName": "Theme Name",
 		"starter": {
-			"repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
-			"replace": "_s",
+			"repository": "git@github.com:yapapaya/_ya.git",
+			"replace": "_ya",
 			"gitHeader": "Repo",
 			"gitHeaderType": "git",
 			"colophon" : {
-				"author" : "Automattic",
-				"url" : "automattic.com"
+				"author" : "Yapapaya",
+				"url" : "yapapaya.com"
 			}
 		},
 		"components": {
@@ -61,15 +72,15 @@ This part of the `package.json` can be used to generate the theme headers.
 
 ```json
 {
-	"name": "my-project-name",
+	"name": "my-theme",
 	"version": "0.0.1",
 	"author": {
 		"name": "Yapapaya",
-		"url": "https://yapapaya.com/"
+		"url": "https://yapapaya.com"
 	},
 	"homepage": "https://yapapaya.com/my-project-name/",
-	"description": "A custom description for My Project Name",
-	"repository": "git@git.yapapaya.in:yapapaya/my-project-name.git"
+	"description": "A custom description for My Theme",
+	"repository": "git@git.yapapaya.in:yapapaya/my-theme"
 }
 ```
 
@@ -78,15 +89,15 @@ The `json` above will create the theme headers in `style.css` as follows:
 ```php
 <?php
 /*
-Theme Name: My Project Name
-Theme URI: https://yapapaya.com/my-project-name/
+Theme Name: My Theme
+Theme URI: https://yapapaya.com/my-theme/
 Author: Yapapaya
 Author URI: https://yapapaya.com/
 Description: A custom description for My Project Name
 Version: 0.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: my-project-name
+Text Domain: my-theme
 */
 ```
 #### `wpgg` Data
@@ -96,16 +107,15 @@ This part contains information that the `wpgg` framework needs.
 ```json
 {
 	"wpgg": {
-		"prettyName": "Baap Theme",
-		"functionPrefix" : "my_theme",
+		"prettyName": "Theme Name",
 		"starter": {
-			"repository": "git@git.yapapaya.in:yapapaya/yapapaya_s.git",
-			"replace": "_s",
+			"repository": "git@github.com:yapapaya/_ya.git",
+			"replace": "_ya",
 			"gitHeader": "Repo",
 			"gitHeaderType": "git",
 			"colophon" : {
-				"author" : "Automattic",
-				"url" : "automattic.com"
+				"author" : "Yapapaya",
+				"url" : "yapapaya.com"
 			}
 		},
 		"components": {
@@ -120,7 +130,7 @@ This part contains information that the `wpgg` framework needs.
 This is an example of an internal version we are working on.
  1. **prettyName**: (*optional*) `Theme Name:` header. If not supplied, will be generated from package `name` by replacing hyphens(`-`) with spaces and capitalising each word. (`my-theme` will make `My Theme`)
  1. **functionPrefix**: (*optional*) Prefix for function names. If not supplied, will be generated from package `name` by replacing hyphens(`-`) with underscores (`_`). (`my-theme` will make `my_theme`)
- 1. **starter**: (*required*) Information about the starter theme. We use a custom flavour of [`_s` theme by Automattic](https://github.com/Automattic/_s).
+ 1. **starter**: (*required*) Information about the starter theme. We use a custom flavour of [`_s` theme by Automattic](https://github.com/Automattic/_s). It's called [`_ya`](https://github.com/yapapaya/_ya/) and you can use it as a starter theme or *fork it* to build *your own* starter theme.
   * **repository**: (*required*) is the `git` url of the repository of the starter
   * **replace**: (*optional*) The namespace of the starter. This will be replaced in function names, text-domain, documentation, etc . See the idea behind it, using [*_s* theme](https://github.com/Automattic/_s#getting-started). If not supplied, no replacements will be made.
   * **gitHeader**: (*optional*) An optional git header. For example, if you use something like [GitHub Updater](https://github.com/afragen/github-updater) you'd set this to `GitHub Theme URI`.

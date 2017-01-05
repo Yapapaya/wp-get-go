@@ -2,7 +2,7 @@
  * Starter Package Fetch Module
  * 
  * @module utils/find-replace
- * @todo remove the footer.php special condition & release this as a generic package
+ * @todo release this as a generic package
  */
 var glob = require( 'glob' ); // for finding files using glob patterns
 var readline = require( 'readline' ); // for reading files line by line
@@ -32,13 +32,13 @@ var findReplace = module.exports = function( options, callback ) {
 
 	patterns.forEach( function( pattern ) {
 
-		frFind( path, pattern, options, callback );
+		find( path, pattern, options, callback );
 
 	} );
 
 };
 
-var frFind = function( path, pattern, options, callback ) {
+var find = function( path, pattern, options, callback ) {
 	var findablePattern = path + pattern;
 	glob( findablePattern, { nodir: true }, function( err, files ) {
 
@@ -52,18 +52,14 @@ var frFind = function( path, pattern, options, callback ) {
 				console.log( 'Found file "' + file + '" from pattern "' + pattern + '"' );
 			}
 
-//			if ( file.search( '/footer.php' ) > -1 ) {
-//				options.match = options.match.concat( options.Colophon );
-//			}
-
-			frReplace( file, options, callback );
+			replace( file, options, callback );
 
 		} );
 
 	} );
 };
 
-var frReplace = function( file, options, callback ) {
+var replace = function( file, options, callback ) {
 
 	var output = '';
 
